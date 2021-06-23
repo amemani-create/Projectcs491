@@ -1,0 +1,206 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+  <meta charset="utf-8">
+  <title>Cokedama Interior Plantscaping</title>
+
+  <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="{% static 'website/plugins/bootstrap/bootstrap.min.css' %}">
+  <!-- Ionic Icon Css -->
+  <link rel="stylesheet" href="{% static 'website/plugins/Ionicons/css/ionicons.min.css' %}">
+  <!-- animate.css -->
+  <link rel="stylesheet" href="{% static 'website/plugins/animate-css/animate.css' %}">
+  <!-- Magnify Popup -->
+  <link rel="stylesheet" href="{% static 'website/plugins/magnific-popup/magnific-popup.css' %}">
+  <!-- Slick CSS -->
+  <link rel="stylesheet" href="{% static 'website/plugins/slick/slick.css' %}">
+    <!-- MDB icon -->
+    <link rel="icon" href="{% static 'website/img/mdb-favicon.ico' %}" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet" href="{% static 'website/css/mdb.min.css' %}" />
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="{% static 'website/css/style.css' %}">
+  <script>(function(w, d) { w.CollectId = "60cb88a1a212684d607393fe"; var h = d.head || d.getElementsByTagName("head")[0]; var s = d.createElement("script"); s.setAttribute("type", "text/javascript"); s.async=true; s.setAttribute("src", "https://collectcdn.com/launcher.js"); h.appendChild(s); })(window, document);</script>
+
+</head>
+
+<body id="body">
+
+<!-- Header Start -->
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+          <div class="container-fluid">
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-mdb-toggle="collapse"
+              data-mdb-target="#navbarExample01"
+              aria-controls="navbarExample01"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarsExample09">
+                <a class="navbar-brand" href="{% url 'home' %}">
+
+                    <img
+                      src="{% static 'website/images/logo.png' %}"
+                      height="45"
+                      alt=""
+                      loading="lazy"
+                    />
+                </a>
+
+
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="navbar-nav ml-auto">
+                  <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">Our Story</a>
+                  </li>
+                <li class="nav-item dropdown @@portfolio">
+								<a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Portfolio <span class="ion-ios-arrow-down"></span></a>
+								<ul class="dropdown-menu" aria-labelledby="dropdown03">
+									<li><a class="dropdown-item @@portfolioFilter" href="{% url 'portfolio' %}">Portfolio</a></li>
+                                    <li><a class="dropdown-item @@portfolioFilter" href="{% url 'portfolio' %}">Consulting</a></li>
+                        </ul>
+							</li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'service' %}">Service</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+                </li>
+                <li class="nav-item dropdown @@products">
+								<a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products <span class="ion-ios-arrow-down"></span></a>
+								<ul class="dropdown-menu" aria-labelledby="dropdown03">
+									<li><a class="dropdown-item @@portfolioFilter" href="{% url 'store:product_list' %}">Shop</a></li>
+									<li><a class="dropdown-item @@portfolioFilter" href="{% url 'service' %}">Services</a></li>
+									<li class="dropdown dropdown-submenu dropright">
+										<a class="dropdown-item dropdown-toggle" href="{% url 'service' %}" id="dropdown0301" role="button"
+											data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Plant Descriptions</a>
+
+										<ul class="dropdown-menu" aria-labelledby="dropdown0301">
+											<li><a class="dropdown-item" href="{% url 'service' %}">Submenu 01</a></li>
+											<li><a class="dropdown-item" href="{% url 'service' %}">Submenu 02</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+              </ul>
+              <ul class="navbar-nav d-flex flex-row">
+                <!-- Icons -->
+                <li class="nav-item me-3 me-lg-0">
+                    <div class="cart">
+        {% with total_items=cart|length %}
+          {% if total_items > 0 %}
+            Cart:
+            <a>
+              {{ total_items }} item{{ total_items|pluralize }},
+              ${{ cart.get_total_price }}
+            </a>
+          {% else %}
+            Your cart is empty.
+          {% endif %}
+        {% endwith %}
+      </div>
+                </li>
+                <li class="nav-item me-3 me-lg-0">
+                  <a class="nav-link" href="#">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                </li>
+                <!-- Icon dropdown -->
+                <li class="nav-item me-3 me-lg-0 dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-mdb-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <i class="fas fa-user"></i>
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li>
+                      <a class="dropdown-item" href="#">Action</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Another action</a>
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Background image -->
+
+      </header><!-- header close -->
+
+{% block content %}
+
+{% endblock %}
+
+<!-- footer Start -->
+<footer class="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="footer-manu">
+					<ul>
+						<li><a href="{% url 'about' %}">About Us</a></li>
+						<li><a href="{% url 'contact' %}">Contact us</a></li>
+						<li><a href="{% url 'store:product_list' %}">Shop</a></li>
+					</ul>
+				</div>
+				<p class="copyright mb-0">Copyright <script>document.write(new Date().getFullYear())</script> &copy; <a>Cokedama</a>. All rights reserved.
+				</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<!--Scroll to top-->
+<div id="scroll-to-top" class="scroll-to-top">
+	<span class="icon ion-ios-arrow-up"></span>
+</div>
+
+
+    <!-- Main jQuery -->
+    <script src="{% static 'website/plugins/jquery/jquery.min.js' %}"></script>
+    <!-- Bootstrap 3.1 -->
+    <script src="{% static 'website/plugins/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- slick Carousel -->
+    <script src="{% static 'website/plugins/slick/slick.min.js' %}"></script>
+    <script src="{% static 'website/plugins/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+    <!-- filter -->
+    <script src="{% static 'website/plugins/shuffle/shuffle.min.js' %}"></script>
+    <script src="{% static 'website/plugins/SyoTimer/jquery.syotimer.min.js' %}"></script>
+    <script src="{% static 'website/js/script.js' %}"></script>
+      <script type="text/javascript" src="{% static 'website/js/mdb.min.js' %}"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript"></script>
+
+    </body>
+
+    </html>
