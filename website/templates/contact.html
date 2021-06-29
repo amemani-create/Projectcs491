@@ -1,74 +1,76 @@
 {% extends "main_base.html" %}
 {% load static %}
 {% block content %}
-<section class="page-title bg-2">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="block">
-          <h1>Contact Us</h1>
-          <p>Contact Us</p>
+    <section class="page-title bg-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block">
+                        <h1>Contact Us</h1>
+                        <p>Contact Us</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- contact form start -->
-<section class="contact-form">
-  <div class="container">
-      {% if user_name %}
-      <center>
-          <h2>Thank you for the message {{ user_name }}</h2>
-          <p>We've received your message and will respond shortly!</p>
-      </center>
-      <br/><br/>
-      {% endif %}
-      <!-- Actual Form Start -->
-    <form action="{% url 'contact' %}" method="post" class="row" id="contact-form">
-        {% csrf_token %}
-      <div class="col-md-6 col-sm-12">
-        <div class="block">
-          <div class="form-group">
-            <input name="user_name" type="text" class="form-control" placeholder="Your Name">
-          </div>
-          <div class="form-group">
-            <input name="user_email" type="text" class="form-control" placeholder="Email Address">
-          </div>
-          <div class="form-group">
-            <input name="user_subject" type="text" class="form-control" placeholder="Subject">
-          </div>
+    </section>
+    <!-- contact form start -->
+    <section class="contact-form">
+        <div class="container">
+            {% if user_name %}
+                <center>
+                    <h2>Thank you for the message {{ user_name }}</h2>
+                    <p>We've received your message and will respond shortly!</p>
+                </center>
+                <br/><br/>
+            {% endif %}
+            <!-- Actual Form Start -->
+            <form action="{% url 'contact' %}" method="post" class="row" id="contact-form">
+                {% csrf_token %}
+                <div class="col-md-6 col-sm-12">
+                    <div class="block">
+                        <div class="form-group">
+                            <input name="user_name" type="text" class="form-control" placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <input name="user_email" type="text" class="form-control" placeholder="Email Address">
+                        </div>
+                        <div class="form-group">
+                            <input name="user_subject" type="text" class="form-control" placeholder="Subject">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="block">
+                        <div class="form-group-2">
+                            <textarea name="user_message" class="form-control" rows="4"
+                                      placeholder="Your Message"></textarea>
+                        </div>
+                        <button class="btn btn-default" type="submit">Send Message</button>
+                    </div>
+                </div>
+            </form>
+            <!-- Actual Form End -->
+            <div class="contact-box row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="block">
+                        <h2>Stop By For A visit</h2>
+                        <ul class="address-block">
+                            <li>
+                                <i class="ion-ios-email-outline"></i>Email: cokedamainterior@gmail.com
+                            </li>
+                            <li>
+                                <i class="ion-ios-telephone-outline"></i>Phone:+94 71 412 0033
+                            </li>
+                        </ul>
+                        <ul class="social-icons">
+                            <li>
+                                <a href="https://www.facebook.com/cokedamainteriorplantscaping"><i
+                                        class="ion-social-facebook-outline"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-md-6 col-sm-12">
-        <div class="block">
-          <div class="form-group-2">
-            <textarea name="user_message" class="form-control" rows="4" placeholder="Your Message"></textarea>
-          </div>
-          <button class="btn btn-default" type="submit">Send Message</button>
-        </div>
-      </div>
-    </form>
-       <!-- Actual Form End -->
-    <div class="contact-box row">
-      <div class="col-md-6 col-sm-12">
-        <div class="block">
-          <h2>Stop By For A visit</h2>
-          <ul class="address-block">
-            <li>
-              <i class="ion-ios-email-outline"></i>Email: cokedamainterior@gmail.com
-            </li>
-            <li>
-              <i class="ion-ios-telephone-outline"></i>Phone:+94 71 412 0033
-            </li>
-          </ul>
-          <ul class="social-icons">
-            <li>
-              <a href="https://www.facebook.com/cokedamainteriorplantscaping"><i class="ion-social-facebook-outline"></i></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 {% endblock %}

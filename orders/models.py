@@ -13,6 +13,9 @@ class Order(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     paid = models.BooleanField(default=False)
+    billed = models.BooleanField(default=False)
+    mailed = models.BooleanField(default=False)
+    delivered = models.BooleanField(default=False)
 
     class Meta:
         ordering = ('-created',)
@@ -28,9 +31,10 @@ class Order(models.Model):
             subject,
             message,
             company_email,  # from: company email name
-            [self.email, company_email], #to: emails sent to
+            [self.email, company_email],  # to: emails sent to
             fail_silently=False,
         )
+
 
 class OrderItem(models.Model):
     order = models.ForeignKey(Order,

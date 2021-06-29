@@ -1,0 +1,132 @@
+{% extends "main_base.html" %}
+{% load static %}
+
+{% block title %}
+    {% if category %}{{ category.name }}{% else %}Products{% endif %}
+{% endblock %}
+
+{% block content %}
+    <div
+            class="p-5 text-center bg-image shadow-1-strong"
+            style="
+                    background-image: url({% static 'website/images/call-to-action-bg.jpg' %});
+                    height: 500px;
+                    "
+    >
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <div class="text-white">
+                    <h1 class="mb-3">Shop Cokedama</h1>
+                    <h8 class="mb-3">Add Some Green to Your Home Today!</h8>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="mt-5">
+        <div class="container">
+            <form class="d-flex input-group w-auto" action="/store/search">
+                <div class="input-group">
+                    <input
+                            name="q"
+                            type="text"
+                            class="form-control rounded"
+                            placeholder="Search"
+                            aria-label="Search"
+                            aria-describedby="search-addon"
+                    />
+                    <button type="submit" class="button is-black">Search</button>
+                </div>
+            </form>
+        </div>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mg-4">
+            <!-- Container wrapper -->
+            <!-- Toggle button -->
+            <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+            >
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- ADITI HERE! THE NAVBAR IS HERE! Y'know, the one we want to edit and stuff -->
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <strong class="text-dark mr-2">Categories:</strong>
+                <!-- Navbar brand -->
+                <a class="navbar-brand mt-2 mt-lg-0">
+
+                </a>
+                <!-- Left links -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li><a class="dropdown-item" href="{% url "store:product_list" %}">All</a></li>
+                    {% for c in categories %}
+                        <li {% if category.slug == c.slug %}class="selected" {% endif %}>
+                            <a class="dropdown-item" href="{{ c.get_absolute_url }}">{{ c.name|title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <!-- Left links -->
+            </div>
+
+            <!-- Right elements -->
+
+            <!-- Notifications -->
+
+
+            </div>
+            </div>
+            </a>
+            <!-- Right elements -->
+            </div>
+        </nav>
+
+
+        <!--WARNING,  a LOT of code within these two 'row' blocks-->
+        <!--These Blocks hold the 6 shop panels on the lower half of the page-->
+        <!--Each block holds 3 panels in a row. Duh. Simply copy and paste either to add another row-->
+
+        <section class="text-container mb-4 mr-4 ml-4 mt-4">
+            <div class="row">
+                <h1>Search Results</h1>
+                <div class="portfolio-item shuffle-item grid-container">
+                    {% for product in s_products %}
+                        <div class="card">
+                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light"
+                                 style="display: inline-block; align-items: center;  margin: auto;">
+                                <img
+                                        src="
+                                                {% if product.image %}{{ product.image.url }}{% else %}{% static 'website/images/logo.png' %}{% endif %}"
+                                        class="img-fluid" width="300" height="300"
+                                        style="max-height: 100%; max-width: 100%;"
+                                >
+
+                                <a href="{{ product.get_absolute_url }}">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body"
+                                 style="display: inline-block; align-items: center;  margin: auto; justify-content: center;">
+                                <h5 class="card-title" style="text-align: center;">{{ product.name }}</h5>
+                                <p class="card-text" style="text-align: center;"><small
+                                        class="text-muted">Rs.{{ product.price }}</small></p>
+                                <a href="{{ product.get_absolute_url }}" class="btn btn-main" style="margin: auto; ">Purchase</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            </div>
+            </div>
+            </div>
+        </section>
+
+    </main>
+{% endblock %}

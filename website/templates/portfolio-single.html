@@ -2,62 +2,52 @@
 {% load static %}
 {% block content %}
 
-<section class="portfolio-single-page section-sm">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-xl-8 col-lg-7">
-        <div class="portfolio-single-slider">
-          <div><img class="img-fluid" src="{% static 'website/images/portfolio/portfolio-big-1.jpg' %}"></div>
-          <div><img class="img-fluid" src="{% static 'website/images/portfolio/portfolio-big-2.jpg' %}"></div>
-          <div><img class="img-fluid" src="{% static 'website/images/portfolio/portfolio-big-3.jpg' %}"></div>
-          <div><img class="img-fluid" src="{% static 'website/images/portfolio/portfolio-big-4.jpg' %}"></div>
-          <div><img class="img-fluid" src="{% static 'website/images/portfolio/portfolio-big-5.jpg' %}"></div>
-          <div><img class="img-fluid" src="{% static 'website/images/portfolio/portfolio-big-6.jpg' %}"></div>
-        </div>
-      </div>
-      <div class="col-xl-4 col-lg-5 mt-5 mt-lg-0">
-        <div class="project-details">
-          <h4>ROIYO PLANT</h4>
-          <ul>
-            <li><span><i class="fa fa-shirtsinbulk "></i> Reference No </span><strong>123</strong></li>
-            <li><span><i class="fa fa-shield "></i> Scientific Name </span><strong>Tradescantia</strong></li>
-            <li><span><i class="fa fa-ils "></i>Sinhala Name</span><strong>රෝහියෝ (ROIYO)</strong></li>
-            <li><span><i class="icon-calendar3"></i>Tamil Name</span> none </li>
-            <li><span><i class="icon-lightbulb"></i>Plant Family</span> Combretaceae</li>
-            <li><span><i class="fa fa-shirtsinbulk "></i> Plant Group </span><strong>Angiosperms</strong></li>
-            <li><span><i class="fa fa-shield "></i>Crown Architecture</span><strong>Shrub Canopy</strong></li>
-            <li><span><i class="fa fa-ils "></i>Native Region(s)</span><strong>Belize</strong></li>
-            <li><span><i class="icon-calendar3"></i>Tamil Name</span> none </li>
-            <li><span><i class="icon-lightbulb"></i>Plant Family</span> Combretaceae</li>
-            <li><span><i class="fa fa-shirtsinbulk "></i> Reference No </span><strong>123</strong></li>
-            <li><span><i class="fa fa-shield "></i> Scientific Name </span><strong>Tradescantia</strong></li>
-            <li><span><i class="fa fa-ils "></i>Sinhala Name</span><strong>රෝහියෝ (ROIYO)</strong></li>
-            <li><span><i class="icon-calendar3"></i>Tamil Name</span> none </li>
-            <li><span><i class="icon-lightbulb"></i>Plant Family</span> Combretaceae</li>
-            <li><span><i class="fa fa-shirtsinbulk "></i> Reference No </span><strong>123</strong></li>
-            <li><span><i class="fa fa-shield "></i> Scientific Name </span><strong>Tradescantia</strong></li>
-            <li><span><i class="fa fa-ils "></i>Sinhala Name</span><strong>රෝහියෝ (ROIYO)</strong></li>
-            <li><span><i class="icon-calendar3"></i>Tamil Name</span> none </li>
-            <li><span><i class="icon-lightbulb"></i>Plant Family</span> Combretaceae</li>
-            <li><span><i class="fa fa-shirtsinbulk "></i> Reference No </span><strong>123</strong></li>
-            <li><span><i class="fa fa-shield "></i> Scientific Name </span><strong>Tradescantia</strong></li>
-            <li><span><i class="fa fa-ils "></i>Sinhala Name</span><strong>රෝහියෝ (ROIYO)</strong></li>
-            <li><span><i class="icon-calendar3"></i>Tamil Name</span> none </li>
-            <li><span><i class="icon-lightbulb"></i>Plant Family</span> Combretaceae</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="project-content mt-50">
-          <h2 class="mb-3">Plant Categories</h2>
-          <p>Border Plants;   Colorful Plants;   Common Landscaping Plants;   Courtyard Plants;   Ground Covers;   Hedging Plants;   Herbaceous Plants;   Home Garden Plants;   Indoor Plants;   Low Maintenance Plants;   Parasitic Plants;   Rooftop Plants;   Small Shrubs;   Evergreen Plants;   Attractive plant;   Suitable for Hotel Landscapes</p>
-        </div>
-      </div>
-    </div>
+    <section class="portfolio-single-page section-sm">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-8 col-lg-7">
+                    <div class="portfolio-single-slider">
+                        <div><img class="img-fluid" src="
+                                {% if project.image1 %}{{ project.image1.url }}{% else %}{% static 'website/images/logo.png' %}{% endif %}">
+                        </div>
+                        <div><img class="img-fluid" src="
+                                {% if project.image2 %}{{ project.image2.url }}{% else %}{% static 'website/images/logo.png' %}{% endif %}">
+                        </div>
+                        <div><img class="img-fluid" src="
+                                {% if project.image3 %}{{ project.image3.url }}{% else %}{% static 'website/images/logo.png' %}{% endif %}">
+                        </div>
+                        <div><img class="img-fluid" src="
+                                {% if project.image4 %}{{ project.image4.url }}{% else %}{% static 'website/images/logo.png' %}{% endif %}">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-5 mt-5 mt-lg-0">
+                    <div class="project-details">
+                        <h4>{{ project.name }}</h4>
+                        <ul>
+                            <li><span><i
+                                    class="fa fa-ils "></i>Project Summary </span><strong></br>{{ project.project_summary }}</strong>
+                            </li>
+                            <li><span><i
+                                    class="fa fa-ils "></i>Client Name</span><strong></br>{{ project.client_name }}</strong>
+                            </li>
+                            <li><span><i
+                                    class="fa fa-ils "></i>Project Details</span><strong></br>{{ project.description|safe }}</strong>
+                            </li>
 
-  </div>
-</section>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="project-content mt-50">
+                        <h2 class="mb-3">Plant Categories</h2>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
 
 {% endblock %}

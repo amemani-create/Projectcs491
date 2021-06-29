@@ -1,6 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from cart.forms import CartAddProductForm
 from .models import Category, Product
+from django.db.models import Q
+from django.http import HttpResponse, HttpResponseRedirect
+from django.template import loader
 
 
 def product_list(request, category_slug=None):
@@ -17,7 +20,7 @@ def product_list(request, category_slug=None):
                    'products': products})
 
 
-def product_detail(request, id, slug ):
+def product_detail(request, id, slug):
     product = get_object_or_404(Product,
                                 id=id,
                                 slug=slug,
@@ -29,4 +32,12 @@ def product_detail(request, id, slug ):
                   'store/product/detail.html',
                   {'product': product,
                    'cart_product_form': cart_product_form}
-    )
+                  )
+
+
+def search_products(request):
+    query = request.GET['q']
+    s_products = Product.objects.filter(name__icontains=query, available=True)
+    return render(request,
+                  'store/product/search_list.html',
+                  {'s_products': s_products})

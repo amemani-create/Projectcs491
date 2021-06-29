@@ -6,7 +6,9 @@ urlpatterns = [
     path('about/', views.about, name="about"),
     path('contact.html', views.contact, name="contact"),
     path('portfolio/', views.portfolio, name="portfolio"),
-    path('portfolio-single/', views.portfolio_single, name="portfolio_single"),
-    path('service/', views.service, name="service"),
+    path('portfolio-single/<int:id>/<slug:slug>/', views.portfolio_single, name="portfolio_single"),
+    path('consult/', views.consult, name="consult"),
+    path('trees/', views.tree_profile, name="tree_profile"),
+    path('tree-single/<int:id>/<slug:slug>/', views.tree_single, name="tree_single"),
 
 ]

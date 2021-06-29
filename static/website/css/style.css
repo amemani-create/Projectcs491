@@ -106,6 +106,30 @@ input[type="tel"]:focus {
   border: 1px solid #708238;
 }
 
+.icon-wrapper{
+    position:relative;
+    float:left;
+}
+.thegrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr)
+}
+i {
+    width:100px;
+    text-align:center;
+    vertical-align:middle;
+}
+.badge{
+    background: rgba(0,0,0,0.5);
+    width: auto;
+    height: auto;
+    margin: 0;
+    border-radius: 50%;
+    position:absolute;
+    top:-13px;
+    right:-8px;
+    padding:5px;
+}
 .slick-slide {
   outline: 0;
 }
