@@ -27,7 +27,7 @@ SECRET_KEY = '6&mucpwi&#ottj19y&aii7l@$=t^ba_d-4ec8hbh6f^e7*!&t*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['cokedama.herokuapp.com']
 
 # Application definition
 
@@ -91,16 +91,15 @@ WSGI_APPLICATION = 'Projectcs491.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Projectcs491',
-        'USER': 'postgres', 
-        'PASSWORD': 'memani00',
-        'HOST': 'localhost',
-        'PORT': '5433',
+        'NAME': 'd6gi7881stmqdb',
+        'USER': 'lekrtaocgxnxgk',
+        'PASSWORD': '8e12c0adf51a22cc1536d53dc14d3c4471db24676cb30184ed936024473492d7',
+        'HOST': 'ec2-3-89-0-52.compute-1.amazonaws.com',
+        'PORT': '5432',
         
     }
 }
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
+
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
