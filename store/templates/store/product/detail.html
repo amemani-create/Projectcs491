@@ -6,26 +6,85 @@
 {% endblock %}
 
 {% block content %}
-    <section class="contact-form">
-        <div class="container">
-            <div class="product-detail">
-                <h1>{{ product.name }}</h1>
-                <h2>
-                    <a href="{{ product.category.get_absolute_url }}">
-                        {{ product.category }}
-                    </a>
-                </h2>
+    <div
+            class="p-5 text-center bg-image shadow-1-strong"
+            style="
+                    background-image: url({% static 'website/images/call-to-action-bg.jpg' %});
+                    height: 300px;
+                    "
+    >
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <div class="text-white">
+                    <h1 class="mb-3">Shop Cokedama</h1>
+                    <h8 class="mb-3">Add Some Green to Your Home Today!</h8>
+
+                </div>
             </div>
-            <img src="{% if product.image %}{{ product.image.url }}{% else %}
-    {% static "store/img/no_image.png" %}{% endif %}"> <br>
-            <p class="price">Rs.{{ product.price }}</p>
-            <form action="{% url 'cart:cart_add' product.id %}" method="post">
-                {{ cart_product_form }}
-                {% csrf_token %}
-                <input type="submit" value="Add to cart">
+        </div>
+    </div>
+
+    <main class="mt-5">
+        <div class="container">
+            <form class="d-flex input-group w-auto" action="/store/search">
+                <div class="input-group">
+                    <input
+                            name="q"
+                            type="text"
+                            class="form-control mr-sm-2"
+                            placeholder="Search"
+                            aria-label="Search"
+                            aria-describedby="search-addon"
+                    />
+                    <button type="submit" class="btn btn-main text-center">Search</button>
+                </div>
             </form>
-            {{ product.description|safe }}
         </div>
+        <!-- Navbar -->
+    </main>
+    </br> </br>
+    <div class="card" style="flex-direction: row;">
+        <div class="container">
+            <div class="row ">
+                <div class="col-xl-8 col-lg-7">
+                    <div class="portfolio-single-slider">
+                        <div><img class="img-fluid" src="
+
+
+                                {% if product.image %}{{ product.image.url }}{% else %}
+    {% static "store/img/no_image.png" %}{% endif %}">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5  ">
+                    <h2 class="card-title"><strong>{{ product.name }}</strong></h2>
+                    <h5>
+                        <a href="{{ product.category.get_absolute_url }}">
+                            {{ product.category }}
+                        </a>
+                    </h5>
+                    <div class="card-body">
+
+                        <ul class=" list-group-flush">
+                            <li class="list-group-item"><h6>Rs. {{ product.price }}</h6></li>
+                            <li class="list-group-item">
+                                <p class="mb-1">{{ product.description|safe }}</p></li>
+                            <li class="list-group-item">
+                                <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                                    {{ cart_product_form.as_p }}
+                                    {% csrf_token %}
+                                    <input type="submit" class="btn btn-main text-center" value="Add to cart">
+                                </form>
+
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
         </div>
-    </section>
+    </div>
+
 {% endblock %}

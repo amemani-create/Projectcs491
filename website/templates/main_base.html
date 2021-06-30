@@ -116,32 +116,26 @@
 
                     </ul>
                 </li>
-
-                <div class="navbar-nav d-flex flex-row">
-                    <!-- Shopping Cart Icons -->
-
-                    <li class="nav-item me-3 me-lg-0">
-                        <div class="cart">
-                            {% with total_items=cart|length %}
-                                {% if total_items > 0 %}
-                                    <a class="nav-link" href="{% url 'cart:cart_detail' %}">
-                                        <h5 class="badge badge-pill badge-success"><i
-                                                class="fas fa-shopping-cart"></i>{{ total_items }}
-                                            item{{ total_items|pluralize }}</h5>
-                                    </a>
-                                {% else %}
-                                    <a class="nav-link" href="{% url 'cart:cart_detail' %}">
-                                        <h5>
-                                            <div class="badge badge-pill "><i class="fas fa-shopping-cart"></i></div>
-                                        </h5>
-                                    </a>
-                                {% endif %}
-                            {% endwith %}
-                        </div>
-                    </li>
+            </ul>
+            <ul class="navbar-nav d-flex flex-row">
+                <!-- Icons -->
+                <li class="nav-item me-3 me-lg-0">
+                    {% with total_items=cart|length %}
+                        {% if total_items > 0 %}
+                            <a class="nav-link btn btn-icon " href="{% url 'cart:cart_detail' %}">
+                    <i class="fas fa-shopping-cart"><span> {{ total_items }}
+                                             item{{ total_items|pluralize }}</span></i>
+                            </a>
+                        {% else %}
+                            <a class="nav-link" href="{% url 'cart:cart_detail' %}">
+                                <span><i class="fas fa-shopping-cart"></i></span>
+                            </a>
+                        {% endif %}
+                    {% endwith %}
+                </li>
             </ul>
         </div>
-        </div>
+
     </nav>
 
     <!-- Background image -->

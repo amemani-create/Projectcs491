@@ -6,36 +6,71 @@
 {% endblock %}
 
 {% block content %}
-    <section class="contact-form">
+  <div
+            class="p-5 text-center bg-image shadow-1-strong"
+            style="
+                    background-image: url({% static 'website/images/call-to-action-bg.jpg' %});
+                    height: 300px;
+                    "
+    >
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <div class="text-white">
+                    <h1 class="mb-3">Shop Cokedama</h1>
+                    <h8 class="mb-3">Add Some Green to Your Home Today!</h8>
 
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <!-- Navbar -->
+
+
+            <!-- ADITI HERE! THE NAVBAR IS HERE! Y'know, the one we want to edit and stuff -->
+
+
+
+            <!-- Right elements -->
+
+            <!-- Notifications -->
+
+
+
+<section class="contact-form">
         <div class="container">
-            <h1>Your shopping cart</h1>
+            <h2>Your shopping cart</h2>
 
-            <div class="product-list">
-                <table style=" border-spacing: 20px 1rem;">
+            <div class="table-responsive-lg">
+                <table class="table">
                     <thead>
                     <tr>
-                        <th>Image</th>
-                        <th>Product</th>
-                        <th>Quantity</th>
-                        <th>Remove</th>
-                        <th>Unit Price</th>
-                        <th>Price</th>
+                        <th scope="col">Image</th>
+                        <th colspan="2">Product</th>
+
+                        <th scope="col">Unit Price</th>
+                        <th scope="col">Price</th>
+                        <th colspan="2" style="text-align: center;">Quantity</th>
+                        <th scope="col" style="text-align: center;">Remove</th>
                     </tr>
                     </thead>
                     <tbody>
 
-                    <tr>
+
                         {% for item in cart %}
                             {% with product=item.product %}
+                                <tr>
                                 <td>
 
                                     <a href="{{ product.get_absolute_url }}">
                                         <img width="100" src="{{ product.image.url }}">
                                     </a>
                                 </td>
-                                <td>{{ product.name }}</td>
-                                <td>
+                                <td colspan="2">{{ product.name }}</td>
+                                <td class="num">Rs. {{ item.price }}</td>
+                                <td class="num">Rs. {{ item.total_price }}</td>
+                                <td colspan="2" width="100px" style="text-align: center;">
                                     <form action="{% url "cart:cart_add" product.id %}" method="post">
                                         {{ item.update_quantity_form.quantity }}
                                         {{ item.update_quantity_form.override }}
@@ -43,22 +78,21 @@
                                         {% csrf_token %}
                                     </form>
                                 </td>
-                                <td>
+                                <td style="text-align: center;">
                                     <form action="{% url "cart:cart_remove" product.id %}" method="post">
                                         <input type="submit" class="btn btn-outline-danger btn-sm" value="Remove">
                                         {% csrf_token %}
                                     </form>
                                 </td>
-                                <td class="num">Rs. {{ item.price }}</td>
-                                <td class="num">Rs. {{ item.total_price }}</td>
+
                             {% endwith %}
                         {% endfor %}
                     </tr>
 
-                    <tr class="total">
-                        <td><br><strong>Total</strong></td>
-                        <td colspan="4"></td>
-                        <td class="num"><br><strong>Rs. {{ cart.get_total_price }}</strong></td>
+                    <tr style="font-weight: bold;">
+                        <td><strong>Total</strong></td>
+                        <td colspan="6" ></td>
+                        <td class="num"><strong>Rs. {{ cart.get_total_price }}</strong></td>
                     </tr>
                     </tbody>
                 </table>
@@ -66,11 +100,11 @@
         </div>
         </br>
         <p class="text-center">
-            <a href="{% url "store:product_list" %}" class="btn btn-success">Continue shopping &emsp;</a>
-            <a href="{% url "orders:order_create" %}" class="btn btn-success">
+            <a href="{% url "store:product_list" %}" class="btn btn-main">Continue shopping &emsp;</a>
+            <a href="{% url "orders:order_create" %}" class="btn btn-main">
                 Checkout
             </a>
         </p>
         </div>
-    </section>
+</section>
 {% endblock %}

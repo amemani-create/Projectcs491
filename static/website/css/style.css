@@ -1186,12 +1186,30 @@ ul.dropdown-menu li {
   height: auto;
 }
 
+.plist-item {
+  position: relative;
+  padding: 0;
+}
+
+.plist-item img {
+  width: 100%;
+  height: auto;
+}
+
 .portfolio-item:hover .portfolio-hover {
+  visibility: visible;
+  opacity: 1;
+}
+.plist-item:hover .portfolio-hover {
   visibility: visible;
   opacity: 1;
 }
 
 .portfolio-item:hover .portfolio-content {
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.plist-item:hover .portfolio-content {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
 }

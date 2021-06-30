@@ -2,54 +2,64 @@
 {% load static %}
 {% block content %}
 
-    <section class="portfolio-single-page section-sm">
+    <div class="card" style="flex-direction: row;">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row ">
                 <div class="col-xl-8 col-lg-7">
                     <div class="portfolio-single-slider">
                         <div><img class="img-fluid" src="
+
+
+
                                 {% if tree.image1 %}{{ tree.image1.url }}{% else %}{% static 'website/images/logo.png' %}{% endif %}">
                         </div>
                         <div><img class="img-fluid" src="
+
+
+
                                 {% if tree.image2 %}{{ tree.image2.url }}{% else %}{% static 'website/images/logo.png' %}{% endif %}">
                         </div>
                         <div><img class="img-fluid" src="
+
+
+
                                 {% if tree.image3 %}{{ tree.image3.url }}{% else %}{% static 'website/images/logo.png' %}{% endif %}">
                         </div>
                         <div><img class="img-fluid" src="
+
+
+
                                 {% if tree.image4 %}{{ tree.image4.url }}{% else %}{% static 'website/images/logo.png' %}{% endif %}">
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4 col-lg-5 mt-5 mt-lg-0">
-                    <div class="project-details">
-                        <h4>{{ tree.name }}</h4>
-                        <ul>
-                            <li><span><i
-                                    class="fa fa-ils "></i>Scientific Name </span><strong></br>{{ tree.scientific_name }}</strong>
-                            </li>
-                            <li><span><i
-                                    class="fa fa-ils "></i>Description of this Plant</span><strong></br>{{ tree.description|safe }}</strong>
-                            </li>
-                            <li><span><i
-                                    class="fa fa-ils "></i>Benefits of this Plant</span><strong></br>{{ tree.benefits|safe }}</strong>
-                            </li>
-                            <li><span><i
-                                    class="fa fa-ils "></i>How to care for this Plant</span><strong></br>{{ tree.care|safe }}</strong>
-                            </li>
+                <div class="col-lg-5  ">
+                    <h5 class="card-title"><strong>{{ tree.name }}</strong></h5>
+                    <div class="card-body">
+
+                        <ul class=" list-group-flush">
+                            <li class="list-group-item"><h6>Scientific Name</h6>
+                                <p class="mb-1">{{ tree.scientific_name }}</p></li>
+                            <li class="list-group-item"><h6>Description of this Plant</h6>
+                                <p class="mb-1">{{ tree.description|safe }}</p></li>
+                            <li class="list-group-item"><h6>Benefits of this Plant</h6>
+                                <p class="mb-1">{{ tree.benefits|safe }}</p></li>
+                            <li class="list-group-item"><h6>How to Care for This Plant</h6>
+                                <p class="mb-1">{{ tree.care|safe }}</p></li>
+                            <li class="list-group-item"><a class="btn btn-main text-center" href="{% url 'contact' %}">Contact
+                                Us</a></li>
                         </ul>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="project-content mt-50">
-                        <h2 class="mb-3">Plant Categories</h2>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="tree-content mt-50">
+                            <h2 class="mb-3">Plant Categories</h2>
+                        </div>
                     </div>
                 </div>
+
             </div>
-
         </div>
-    </section>
-
+    </div>
 {% endblock %}

@@ -10,7 +10,7 @@
             class="p-5 text-center bg-image shadow-1-strong"
             style="
                     background-image: url({% static 'website/images/call-to-action-bg.jpg' %});
-                    height: 500px;
+                    height: 300px;
                     "
     >
         <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
@@ -31,12 +31,12 @@
                     <input
                             name="q"
                             type="text"
-                            class="form-control rounded"
+                            class="form-control mr-sm-2"
                             placeholder="Search"
                             aria-label="Search"
                             aria-describedby="search-addon"
                     />
-                    <button type="submit" class="button is-black">Search</button>
+                    <button type="submit" class="btn btn-main text-center">Search</button>
                 </div>
             </form>
         </div>
@@ -93,40 +93,39 @@
         <!--These Blocks hold the 6 shop panels on the lower half of the page-->
         <!--Each block holds 3 panels in a row. Duh. Simply copy and paste either to add another row-->
 
-        <section class="text-container mb-4 mr-4 ml-4 mt-4">
-            <div class="row">
-                <h1>Search Results</h1>
-                <div class="portfolio-item shuffle-item grid-container">
+        <div class="section">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap:20px;">
                     {% for product in s_products %}
-                        <div class="card">
-                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light"
-                                 style="display: inline-block; align-items: center;  margin: auto;">
-                                <img
-                                        src="
-                                                {% if product.image %}{{ product.image.url }}{% else %}{% static 'website/images/logo.png' %}{% endif %}"
-                                        class="img-fluid" width="300" height="300"
-                                        style="max-height: 100%; max-width: 100%;"
-                                >
+                        <div class="portfolio-item" style="padding: 0px"
+                             data-groups="[&quot;design&quot;]">
+                            <img src="
 
-                                <a href="{{ product.get_absolute_url }}">
-                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                                </a>
-                            </div>
-                            <div class="card-body"
-                                 style="display: inline-block; align-items: center;  margin: auto; justify-content: center;">
-                                <h5 class="card-title" style="text-align: center;">{{ product.name }}</h5>
-                                <p class="card-text" style="text-align: center;"><small
-                                        class="text-muted">Rs.{{ product.price }}</small></p>
-                                <a href="{{ product.get_absolute_url }}" class="btn btn-main" style="margin: auto; ">Purchase</a>
+
+                                    {% if product.image %}{{ product.image.url }}{% else %}{% static 'website/images/logo.png' %}{% endif %}"
+
+                                 style="width:100%; height: 100%;">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-content">
+                                    <a href="
+
+                                            {% if product.image %}{{ product.image.url }}{% else %}{% static 'website/images/logo.png' %}{% endif %}"
+                                       class="portfolio-popup"></a>
+                                    <a class="h4" href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+                                    <p>Rs.{{ product.price }}</p>
+                                    <a href="{{ product.get_absolute_url }}" class="btn btn-main"
+                                       style="margin: auto; ">Purchase</a>
+                                </div>
                             </div>
                         </div>
+
                     {% endfor %}
+
+
                 </div>
             </div>
-            </div>
-            </div>
-            </div>
-        </section>
+        </div>
+
 
     </main>
 {% endblock %}

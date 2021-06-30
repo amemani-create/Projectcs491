@@ -15,35 +15,33 @@
     </section>
 
     <!-- Portfolio Start -->
-    <section class="portfolio-work">
+    <div class="section">
         <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="block">
-                        <div class="row shuffle-wrapper">
-                            {% for tree in trees %}
-                                <div class="col-lg-4 col-sm-6 portfolio-item shuffle-item"
-                                     data-groups="[&quot;design&quot;]">
-                                    <img src="
-                                            {% if tree.image1 %}{{ tree.image1.url }}{% else %}{% static 'website/images/logo.png' %}{% endif %}"
-                                         alt="">
-                                    <div class="portfolio-hover">
-                                        <div class="portfolio-content">
-                                            <a href="
-                                                    {% if tree.image1 %}{{ tree.image1.url }}{% else %}{% static 'website/images/logo.png' %}{% endif %}"
-                                               class="portfolio-popup"><i class="icon ion-search"></i></a>
-                                            <a class="h3" href="{{ tree.get_absolute_url }}">{{ tree.name }}</a>
-                                            <p>{{ tree.scientific_name }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            {% endfor %}
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr; grid-gap:20px;">
+                {% for tree in trees %}
+                    <div class="portfolio-item" style="padding: 0px"
+                         data-groups="[&quot;design&quot;]">
+                        <img src="
+
+                                {% if tree.image1 %}{{ tree.image1.url }}{% else %}{% static 'website/images/logo.png' %}{% endif %}"
+                             alt="">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-content">
+                                <a href="
+
+                                        {% if tree.image1 %}{{ tree.image1.url }}{% else %}{% static 'website/images/logo.png' %}{% endif %}"
+                                   class="portfolio-popup"><i class="fas fa-tree"></i></a>
+                                <a class="h3" href="{{ tree.get_absolute_url }}">{{ tree.name }}</a>
+                                <p>{{ tree.scientific_name }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
-    </section>
+    </div>
+
+
     <!-- Portfolio End -->
 
 {% endblock %}

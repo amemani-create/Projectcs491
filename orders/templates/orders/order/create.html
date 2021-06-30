@@ -1,43 +1,101 @@
 {% extends "main_base.html" %}
-
+{% load static %}
 {% block title %}
     Checkout
 {% endblock %}
 
 {% block content %}
-    <section class="contact-form">
+    <div
+            class="p-5 text-center bg-image shadow-1-strong"
+            style="
+                    background-image: url({% static 'website/images/call-to-action-bg.jpg' %});
+                    height: 300px;
+                    "
+    >
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <div class="text-white">
+                    <h1 class="mb-3">Shop Cokedama</h1>
+                    <h8 class="mb-3">Add Some Green to Your Home Today!</h8>
 
-        <div class="container">
-            <h1>Checkout</h1>
-            <div class="container">
-                <div class="order-info">
-                    <h3>Your order</h3>
-                    <ul>
-                        {% for item in cart %}
-                            <li>
-                                {{ item.quantity }}x {{ item.product.name }}
-                                <span>${{ item.total_price }}</span>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                    <p>Total: ${{ cart.get_total_price }}</p>
-                </div>
-            </div>
-            <div class="container">
-                <div class="col-md-6 col-sm-12">
-                    <div class="block">
-                        <div class="card-content">
-                            <form method="post" class="order-form">
-                                <table>
-                                    {{ form.as_table }}
-                                </table>
-                                <p><input type="submit" value="Place order"></p>
-                                {% csrf_token %}
-                            </form>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
+    </div>
+
+
+    <!-- Navbar -->
+
+
+    <!-- ADITI HERE! THE NAVBAR IS HERE! Y'know, the one we want to edit and stuff -->
+
+
+
+    <!-- Right elements -->
+
+    <!-- Notifications -->
+
+
+
+    <section class="contact-form">
+
+        <div class="row">
+
+        <div class="col">
+            <h2>Order Request Form</h2>
+            <form method="post" class="order-form">
+
+                <table class = 'table table-hover'>
+                    {{ form.as_table }}
+                </table>
+                <p class="text-center"><input type="submit" class="btn btn-main" value="Place order"></p>
+                {% csrf_token %}
+            </form>
+        </div>
+            <div class="col">
+                <h2>Cart Summary</h2>
+
+                <div class="table-responsive-sm">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Image</th>
+                            <th colspan="2">Product</th>
+
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+
+                        {% for item in cart %}
+                            {% with product=item.product %}
+                                <tr>
+                                <td>
+
+                                    <a href="{{ product.get_absolute_url }}">
+                                        <img width="100" src="{{ product.image.url }}">
+                                    </a>
+                                </td>
+                                <td colspan="2">{{ product.name }}</td>
+                                <td class="num">{{ item.quantity}}</td>
+                                <td class="num">Rs. {{ item.total_price }}</td>
+
+                            {% endwith %}
+                        {% endfor %}
+                        </tr>
+
+                        <tr style="font-weight: bold;">
+                            <td><strong>Total</strong></td>
+                            <td colspan="3"></td>
+                            <td class="num"><strong>Rs. {{ cart.get_total_price }}</strong></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
     </section>
 {% endblock %}
