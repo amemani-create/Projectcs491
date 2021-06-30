@@ -101,14 +101,12 @@
                              data-groups="[&quot;design&quot;]">
                             <img src="
 
-
                                     {% if product.image %}{{ product.image.url }}{% else %}{% static 'website/images/logo.png' %}{% endif %}"
 
                                  style="width:100%; height: 100%;">
                             <div class="portfolio-hover">
                                 <div class="portfolio-content">
                                     <a href="
-
                                             {% if product.image %}{{ product.image.url }}{% else %}{% static 'website/images/logo.png' %}{% endif %}"
                                        class="portfolio-popup"></a>
                                     <a class="h4" href="{{ product.get_absolute_url }}">{{ product.name }}</a>

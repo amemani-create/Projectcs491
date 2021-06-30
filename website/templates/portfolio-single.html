@@ -9,21 +9,17 @@
                     <div class="portfolio-single-slider">
                         <div><img class="img-fluid" src="
 
-
                                 {% if project.image1 %}{{ project.image1.url }}{% else %}{% static 'website/images/logo.png' %}{% endif %}">
                         </div>
                         <div><img class="img-fluid" src="
-
 
                                 {% if project.image2 %}{{ project.image2.url }}{% else %}{% static 'website/images/logo.png' %}{% endif %}">
                         </div>
                         <div><img class="img-fluid" src="
 
-
                                 {% if project.image3 %}{{ project.image3.url }}{% else %}{% static 'website/images/logo.png' %}{% endif %}">
                         </div>
                         <div><img class="img-fluid" src="
-
 
                                 {% if project.image4 %}{{ project.image4.url }}{% else %}{% static 'website/images/logo.png' %}{% endif %}">
                         </div>
@@ -34,12 +30,9 @@
                     <div class="card-body">
 
                         <ul class=" list-group-flush">
-                            <li class="list-group-item"><h6>Summary:</h6>
-                                <p class="mb-1">{{ project.project_summary }}</p></li>
-                            <li class="list-group-item"><h6>Client:</h6>
-                                <p class="mb-1">{{ project.client_name }}</p></li>
-                            <li class="list-group-item"><h6>Details:</h6>
-                                <p class="mb-1">{{ project.description|safe }}</p></li>
+                            <li class="list-group-item"><h6>Summary:</h6> <p class="mb-1">{{ project.project_summary }}</p></li>
+                            <li class="list-group-item"><h6>Client:</h6> <p class="mb-1">{{ project.client_name }}</p></li>
+                            <li class="list-group-item"><h6>Details:</h6><p class="mb-1">{{ project.description|safe }}</p></li>
                             <li class="list-group-item"><a class="btn btn-main text-center" href="{% url 'contact' %}">Contact
                                 Us</a></li>
                         </ul>
@@ -55,5 +48,5 @@
 
             </div>
         </div>
-    </div>
+</div>
 {% endblock %}
