@@ -2,42 +2,36 @@
 {% load static %}
 {% block content %}
 
-    <div class="card" style="flex-direction: row;">
+    <section class="portfolio-single-page section-sm">
         <div class="container">
             <div class="row ">
+
+
                 <div class="col-xl-8 col-lg-7">
-                    <div class="portfolio-single-slider">
+                    <div class="portfolio-single-slider ">
                         <div><img class="img-fluid" src="
-
-
 
                                 {% if tree.image1 %}{{ tree.image1.url }}{% else %}{% static 'website/images/logo.png' %}{% endif %}">
                         </div>
                         <div><img class="img-fluid" src="
 
-
-
                                 {% if tree.image2 %}{{ tree.image2.url }}{% else %}{% static 'website/images/logo.png' %}{% endif %}">
                         </div>
                         <div><img class="img-fluid" src="
-
-
 
                                 {% if tree.image3 %}{{ tree.image3.url }}{% else %}{% static 'website/images/logo.png' %}{% endif %}">
                         </div>
                         <div><img class="img-fluid" src="
 
-
-
                                 {% if tree.image4 %}{{ tree.image4.url }}{% else %}{% static 'website/images/logo.png' %}{% endif %}">
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-5  ">
-                    <h5 class="card-title"><strong>{{ tree.name }}</strong></h5>
-                    <div class="card-body">
 
-                        <ul class=" list-group-flush">
+                </div>
+                <div class="col-xl-4 col-lg-5 mt-5 mt-lg-0">
+                    <div class="project-details">
+                        <h2 class=" text-center"><strong>{{ tree.name }}</strong></h2>
+                         <ul class=" list-group-flush">
                             <li class="list-group-item"><h6>Scientific Name</h6>
                                 <p class="mb-1">{{ tree.scientific_name }}</p></li>
                             <li class="list-group-item"><h6>Description of this Plant</h6>
@@ -51,15 +45,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="tree-content mt-50">
-                            <h2 class="mb-3">Plant Categories</h2>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
-    </div>
+    </section>
 {% endblock %}

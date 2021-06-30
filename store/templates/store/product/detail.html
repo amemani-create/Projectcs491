@@ -42,49 +42,80 @@
         </div>
         <!-- Navbar -->
     </main>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mg-4">
+            <!-- Container wrapper -->
+            <!-- Toggle button -->
+            <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+            >
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- ADITI HERE! THE NAVBAR IS HERE! Y'know, the one we want to edit and stuff -->
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <strong class="text-dark mr-2">Categories:</strong>
+                <!-- Navbar brand -->
+                <a class="navbar-brand mt-2 mt-lg-0">
+
+                </a>
+                <!-- Left links -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li><a class="dropdown-item" href="{% url "store:product_list" %}">All</a></li>
+                    {% for c in categories %}
+                        <li {% if category.slug == c.slug %}class="selected" {% endif %}>
+                            <a class="dropdown-item" href="{{ c.get_absolute_url }}">{{ c.name|title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <!-- Left links -->
+            </div>
+
+
+        </nav>
     </br> </br>
-    <div class="card" style="flex-direction: row;">
+
+<section class="portfolio-single-page section-sm">
         <div class="container">
             <div class="row ">
-                <div class="col-xl-8 col-lg-7">
-                    <div class="portfolio-single-slider">
-                        <div><img class="img-fluid" src="
 
 
-                                {% if product.image %}{{ product.image.url }}{% else %}
-    {% static "store/img/no_image.png" %}{% endif %}">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5  ">
-                    <h2 class="card-title"><strong>{{ product.name }}</strong></h2>
-                    <h5>
-                        <a href="{{ product.category.get_absolute_url }}">
-                            {{ product.category.parent }}
-                        </a>
-                    </h5>
-                    <div class="card-body">
 
-                        <ul class=" list-group-flush">
+                <div class="col">
+                    <div class="project-details">
+                        <h2 class=" text-center"><strong>{{ product.name }}</strong></h2>
+			<h5 class=" text-center"><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></h5>
+                         <ul class=" list-group-flush">
                             <li class="list-group-item"><h6>Rs. {{ product.price }}</h6></li>
                             <li class="list-group-item">
                                 <p class="mb-1">{{ product.description|safe }}</p></li>
-                            <li class="list-group-item">
-                                <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                            <li class="list-group-item" >
+                                <form action="{% url 'cart:cart_add' product.id %}" method="post" >
                                     {{ cart_product_form.as_p }}
                                     {% csrf_token %}
                                     <input type="submit" class="btn btn-main text-center" value="Add to cart">
                                 </form>
-
-
                             </li>
                         </ul>
                     </div>
                 </div>
+                <div class="col-sm float-left">
+
+                        <img class="img-fluid float-left" src="
+
+                                {% if product.image %}{{ product.image.url }}{% else %}{% static "store/img/no_image.png" %}{% endif %}">
 
 
+
+
+                </div>
             </div>
         </div>
-    </div>
-
+    </section>
 {% endblock %}

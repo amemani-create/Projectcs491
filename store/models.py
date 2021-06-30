@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from ckeditor.fields import RichTextField
+from stdimage import StdImageField
 
 
 class Category(models.Model):
@@ -28,6 +29,9 @@ class Product(models.Model):
                                  on_delete=models.CASCADE)
     name = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True)
+    list_image = StdImageField(upload_to='products/%Y/%m/%d', blank=True, variations={
+        'medium': {"width": 200, "height": 200, "crop": True}
+    })
     image = models.ImageField(upload_to='products/%Y/%m/%d',
                               blank=True)
     description = RichTextField(blank=True)

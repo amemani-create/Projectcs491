@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'orders',
     'website',
     'ckeditor',
+    'stdimage',
+
 ]
 
 MIDDLEWARE = [
@@ -96,7 +98,7 @@ DATABASES = {
         'PASSWORD': '8e12c0adf51a22cc1536d53dc14d3c4471db24676cb30184ed936024473492d7',
         'HOST': 'ec2-3-89-0-52.compute-1.amazonaws.com',
         'PORT': '5432',
-        
+
     }
 }
 

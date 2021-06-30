@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "563ee213bf73f3ba1b0852d7d0869562218b12bf685137a946406c70e37db708"
+            "sha256": "b7d07e9f37d22ea6ec4c5a49aa1e837105dda1530686104fc115678e57a0d3cd"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -135,6 +135,13 @@
             "index": "pypi",
             "version": "==3.1"
         },
+        "django-appconf": {
+            "hashes": [
+                "sha256:1b1d0e1069c843ebe8ae5aa48ec52403b1440402b320c3e3a206a0907e97bb06",
+                "sha256:be58deb54a43d77d2e1621fe59f787681376d3cd0b8bd8e4758ef6c3a6453380"
+            ],
+            "version": "==1.0.4"
+        },
         "django-bootstrap-static": {
             "hashes": [
                 "sha256:d9f1f9f7561efb9a73cd80a380d26628047805540ddb12002a453cebb6a74fed",
@@ -206,6 +213,14 @@
             "index": "pypi",
             "version": "==0.3.1"
         },
+        "django-imagekit": {
+            "hashes": [
+                "sha256:304c3379f6a5cac387e47ace11195a603ad3cb01e3e951b45489824d25b00359",
+                "sha256:6ec0afb77cdf52cd453c9fc2c10ef350d111edfd6ce53c5977aa8a0e22cee00c"
+            ],
+            "index": "pypi",
+            "version": "==4.0.2"
+        },
         "django-jquery": {
             "hashes": [
                 "sha256:414ac1083708ac71cc771612e7287702c939d06cd357fd53bb1271a4f6255115",
@@ -266,6 +281,14 @@
             ],
             "index": "pypi",
             "version": "==5.1.0"
+        },
+        "django-stdimage": {
+            "hashes": [
+                "sha256:95f2897f5a520f18e0d0097cc8cb1380db9127ead1abe66a5e048cd7bd4a2295",
+                "sha256:fb9d6bf86664873194fcc378193d81405aa4989eceadb4bcce6bb52588801934"
+            ],
+            "index": "pypi",
+            "version": "==5.3.0"
         },
         "django-timezone-field": {
             "hashes": [
@@ -344,6 +367,12 @@
             ],
             "index": "pypi",
             "version": "==4.6.11"
+        },
+        "pilkit": {
+            "hashes": [
+                "sha256:ddb30c2f0198a147e56b151476c3bb9fe045fbfd5b0a0fa2a3148dba62d1559f"
+            ],
+            "version": "==2.0"
         },
         "pillow": {
             "hashes": [
