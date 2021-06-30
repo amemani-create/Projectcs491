@@ -60,7 +60,7 @@
                     <h2 class="card-title"><strong>{{ product.name }}</strong></h2>
                     <h5>
                         <a href="{{ product.category.get_absolute_url }}">
-                            {{ product.category }}
+                            {{ product.category.parent }}
                         </a>
                     </h5>
                     <div class="card-body">
