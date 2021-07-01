@@ -27,7 +27,7 @@ SECRET_KEY = '6&mucpwi&#ottj19y&aii7l@$=t^ba_d-4ec8hbh6f^e7*!&t*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['cokedama.herokuapp.com']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -83,14 +83,14 @@ WSGI_APPLICATION = 'Projectcs491.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-"""DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-}"""
+}
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'd6gi7881stmqdb',
@@ -100,7 +100,7 @@ DATABASES = {
         'PORT': '5432',
 
     }
-}
+}"""
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
