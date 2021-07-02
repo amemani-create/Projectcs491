@@ -37,7 +37,8 @@ def product_detail(request, id, slug):
 
 def search_products(request):
     query = request.GET['q']
-    s_products = Product.objects.filter(name__icontains=query, available=True)
+    lookup = Q(name__icontains=query) | Q(description__icontains=query)
+    s_products = Product.objects.filter(lookup, available=True)
     return render(request,
                   'store/product/search_list.html',
                   {'s_products': s_products})

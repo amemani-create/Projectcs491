@@ -269,11 +269,11 @@ i {
 }
 
 .bg-primary-dark {
-  background: #4d485d !important;
+  background: #58662c !important;
 }
 
 .bg-primary-darker {
-  background: #353240 !important;
+  background: #424d21 !important;
 }
 
 .bg-dark {
@@ -920,6 +920,8 @@ ul.dropdown-menu li {
   }
 }
 
+
+
 .slider {
   background: url("../images/slider-bg.jpg") no-repeat;
   background-size: cover;
@@ -1014,7 +1016,7 @@ ul.dropdown-menu li {
   padding-top: 15px;
   margin: 0;
   font-weight: 500;
-  text-transform: uppercase;
+
 }
 
 .service .service-item p {
@@ -1049,7 +1051,6 @@ ul.dropdown-menu li {
   padding-top: 15px;
   margin: 0;
   font-weight: 500;
-  text-transform: uppercase;
   margin-bottom: 5px;
 }
 
@@ -1105,7 +1106,7 @@ ul.dropdown-menu li {
 }
 
 .feature {
-  background: url("../img/featue-bg.jpg");
+  background: url("../images/featue-bg.jpg");
   background-position: 50% 94px;
   display: block;
   position: relative;
