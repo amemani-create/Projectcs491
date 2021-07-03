@@ -104,7 +104,8 @@
                 <li class="nav-item dropdown @@products">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">The Shop <span class="ion-ios-arrow-down"></span></a>
-                    <ul class="dropdown-menu scrollable-menu" aria-labelledby="dropdown03">
+                    <ul class="dropdown-menu" aria-labelledby="dropdown03"
+                    style="height: auto; max-height: 200px; overflow-x: hidden; overflow-y: scroll;">
                         <li><a class="dropdown-item @@portfolioFilter" href="{% url 'store:product_list' %}">All</a>
                         </li>
                         {% for c in categories %}

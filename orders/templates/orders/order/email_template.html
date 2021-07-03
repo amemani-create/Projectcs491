@@ -1,21 +1,21 @@
 {% autoescape off %}
-Hi {{ order.first_name }} {{ order.last_name }},
+    Hi {{ order.first_name }} {{ order.last_name }},
 
-Your Order Request has been sent to Cokedama -- Someone from the cokedama team will contact you shortly to process this order Request.
+    Your Order Request has been sent to Cokedama!
+
+    Someone from our team will contact you shortly to process this order Request.
 
     Order ID: {{ order.id }}
 
-    Your order:
+    Requested Items:
+    {% for item in cart %}{% with product=item.product %}
+         ~ {{ product.name }}       QTY: {{ item.quantity }}     Rs. {{ item.total_price }}
+    {% endwith %}{% endfor %}
 
-
-      {% for item in basket %}
-         * {{ item.title }} --  Rs. {{ item.total_price }}
-      {% endfor %}
-
-    Total: Rs. {{ basket.get_total_price }}
+    Total Order Price: Rs. {{ cart.get_total_price }}
 
 
     Best,
     Cokedama Team
-    http://{{ domain }}
+    https://www.cokedama.herokuapp.com
 {% endautoescape %}
